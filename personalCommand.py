@@ -1,16 +1,29 @@
+def getCategory(f):
+    count = 1
+    for char in f.read():
+        if char == ';':
+            count += 1
+        if char == '\n':
+            break
+    return count
 #Fungsi mencari banyak baris dalam file
 def fileLength(f):
-    sum = -1
-    for line in f :
+    sum = 0
+    for line in f.readlines() :
         sum += 1
     return sum
 
+#variabel global banyak baris di file csv
+with open ('./database/user.csv','r') as f:
+    x = fileLength(f) -1
+
+with open ('./database/user.csv','r') as f:
+    y = getCategory(f)
+
 #Fungsi mengambil data username, passsword, dan role lalu dimasukkan ke matriks
 def getData(f):
-    x = fileLength(f)
-    data = [['' for i in range (x)] for i in range(3)]
+    data = [['' for i in range (x+1)] for j in range(y)]
     i = 0
-    f.seek(23)
     j = 0
     for char in f.read() :
         if char == ';':
@@ -18,17 +31,19 @@ def getData(f):
         if char == '\n':
             i = 0
             j+=1
-        if j >=x :
+        if j >=(x+1) :
             break
         if char != ';' and char != '\n':
-            data[i][j] += char
-    return data
+            data[i][j] += char    
+    dataX = [['' for i in range(x)] for j in range(y)]
+    for i in range(3):
+        for j in range(x):
+            dataX[i][j] = data[i][j+1]
+    return dataX     
 
 #Fungsi cek login
-def cekLogin(username,password):
-    with open ('user.csv','r') as f:
-        x = fileLength(f)
-        f.seek(0)
+def cekLogin(username,password):    
+    with open('./database/user.csv','r') as f:
         data = getData(f)
     code = 0
     for i in range (x):
@@ -40,3 +55,4 @@ def cekLogin(username,password):
         else :
             code = 1
     return code
+

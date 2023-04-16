@@ -1,47 +1,34 @@
+def getCategory(f) -> int:
+    count = 1
+    fString = f.readlines(1)
+    for i in range (len(fString[0])):
+        if fString[0][i] == ';':
+            count += 1
+    return count
+
 #Fungsi mencari banyak baris dalam file
-def fileLength(f):
+def file(f) -> tuple:
     sum = 0
+    lineString = ''
     for line in f.readlines() :
         sum += 1
-    return sum
+        lineString += line
+    return sum,lineString
 
-#variabel global banyak baris di file csv
-with open ('./database/user.csv','r') as f:
-    x = fileLength(f) -1
-
-#Fungsi mengambil data username, passsword, dan role lalu dimasukkan ke matriks
-def getData(f):
-    data = [['' for i in range (x+1)] for j in range(3)]
+#Fungsi mengambil data category dan length lalu dimasukkan ke matriks
+def getData(length:int,category:int,StringOF:str) ->list:
+    data = [['' for i in range (category)] for j in range(length)]
     i = 0
     j = 0
-    for char in f.read() :
-        if char == ';':
-            i += 1
-        if char == '\n':
-            i = 0
-            j+=1
-        if j >=(x+1) :
+    for k in range(len(StringOF)) :
+        if StringOF[k] == ';':
+            j += 1
+        if StringOF[k] == '\n':
+            j = 0
+            i+=1
+        if i >=(length) :
             break
-        if char != ';' and char != '\n':
-            data[i][j] += char    
-    dataX = [['' for i in range(x)] for j in range(3)]
-    for i in range(3):
-        for j in range(x):
-            dataX[i][j] = data[i][j+1]
-    return dataX     
-
-#Fungsi cek login
-def cekLogin(username,password):    
-    with open('./database/user.csv','r') as f:
-        data = getData(f)
-    code = 0
-    for i in range (x):
-        if username == data[0][i] :
-            if password != data[1][i]:
-                return 2
-            elif username == data[0][i] and password == data[1][i] :
-                return 3
-        else :
-            code = 1
-    return code
-
+        if StringOF[k] != ';' and StringOF[k] != '\n':
+            data[i][j] += StringOF[k]    
+    # dataX = [['' for i in range(length)] for j in range(category)]
+    return data

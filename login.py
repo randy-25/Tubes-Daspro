@@ -13,11 +13,11 @@ def cekLogin(username:str,password:str,UserData:list,UserLength:list) -> tuple:
     return code,None
 
 #Fungsi login
-def login(status:str, username:str,UserData:list,UserLength:list) -> tuple:
+def login(status:str, username:str,role:str,UserData:list,UserLength:list) -> tuple:
     if status == 1:
         print("Login gagal!")
         print("Anda telah login dengan username " + username +" silahkan lakukan “logout” sebelum melakukan login kembali.")
-        return status,username
+        return status,username,role
     else:
         username = input("Username: ")
         password = input("Password: ")

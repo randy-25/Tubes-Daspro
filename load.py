@@ -13,7 +13,7 @@ def Main() -> tuple:
         print("Folder " + args.load + " tidak ditemukan.")
         return  None,None,None,None,None,None
     elif os.path.isdir(args.load):
-        print("Selamat datang di program “Manajerial Candi")
+        print('Selamat datang di program “Manajerial Candi"')
         with open (args.load  +'/user.csv','r') as f:
             UserCategory = personalCommand.getCategory(f)
             UserLength,UserStringOF = personalCommand.file(f)
@@ -29,7 +29,4 @@ def Main() -> tuple:
         CandiData = personalCommand.getData(CandiLength,CandiCategory,CandiStringOF)
         BangunanData = personalCommand.getData(BangunanLength,BangunanCategory,BangunanStringOF)
         return UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength
-
-def exportData(Data,Length):
-    return Data,Length
 

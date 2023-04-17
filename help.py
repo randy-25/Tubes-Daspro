@@ -26,7 +26,7 @@ def help(status,role):
             print("   Untuk mengetahui proses pembangunan candi")
             print("9. save")
             print("   Untuk menyimpan data")
-        elif role == "roro_jongrang" :
+        elif role == "roro_jonggrang" :
             print("1. logout")
             print("   Untuk keluar dari akun yang digunakan sekarang")
             print("2. hancurkancandi")

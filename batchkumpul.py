@@ -5,6 +5,9 @@ def batchkumpul(userData:list,userLength:int,bangunanData:list) -> list:
     for i in range(userLength):
         if userData[i][2] == 'jin_pengumpul':
             jumlahJin += 1
+    if jumlahJin == 0:
+        print("Kumpul gagal. Anda tidak punya jin pengumpul. Silahkan summon terlebih dahulu.")
+        return bangunanData
     totalPasir = 0
     totalBatu = 0
     totalAir = 0

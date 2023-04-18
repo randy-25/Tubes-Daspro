@@ -1,24 +1,33 @@
-## Read file dari user.csv dan candi.csv
-# Asumsi read menghasilkan lima array dan nilai array sudah ditentukan berdasarakan file tersebut..
+def HapusCandi(namaJin:str,candiData:list,candiLength:int) -> list:
+    for i in range(candiLength):
+        if namaJin == candiData[i][1]:
+            candiData[i][0] = None
+            candiData[i][1] = None
+            candiData[i][2] = None
+            candiData[i][3] = None
+            candiData[i][4] = None
+    return candiData
 
-# Data dari user.csv
-user = ["" for i in range (102)]
-passw = ["" for i in range(102)]
-role = ["" for i in range(102)]
+def HapusUser(userData,userLength,candiData,candiLength):
+    namaJin = input("Masukkan username jin : ")
+    cek = False
+    index = -999
+    for i in range(userLength):
+        if namaJin == userData[i][0]:
+            index = i
+            cek = True
 
-# Data dari candi.csv
-idf = [0 for i in range (100)]
-pembuat = ["" for i in range(100)]
-pasir = [0 for i in range(100)]
-batu = [0 for i in range(100)]
-air = [0 for i in range(100)]
-
-def HapusCandi(username,idf,pembuat,pasir,batu,air):
-    return
-def HapusUser(username,user,passw,role):
-    return
-
-username = input("Masukkan username jin: ")
-opsi = input("Apakah anda yakin ingin menghapus jin dengan username tersebut (Y/N)? ")
-if opsi == "Y":
-    print()
+    if cek == False :
+        print("Tidak ada jin dengan username tersebut.")
+        return userData,candiData
+    elif cek == True:
+        confirm = input("Apakah anda yakin ingin menghapus jin dengan username Jin1 (Y/N)? ")
+        if confirm == 'y' or confirm == 'Y':
+            userData[index][0] = None
+            userData[index][1] = None
+            userData[index][2] = None
+            candiData = HapusCandi(namaJin,candiData,candiLength)
+            return userData,candiData
+        elif confirm == 'n' or confirm == 'N':
+            print("Jin tidak jadi dihapus")
+            return userData,candiData

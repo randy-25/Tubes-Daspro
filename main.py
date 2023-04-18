@@ -5,6 +5,9 @@ import help
 import save
 import exit
 import hancurkanCandi,ayamBerkokok #roro
+import summonjin, hapusjin, ubahJin,batchkumpul, batchbangun, laporanjin, laporancandi #bondowoso
+import kumpul #jin pengumpul
+import bangun #jin pembangun
 
 if __name__ == "__main__" :
     UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength = load.Main()
@@ -29,8 +32,24 @@ if __name__ == "__main__" :
                     break
             if status == 1:
                 if role == "bandung_bondowoso":
-                    #masukkan fungsi2 bandung bondowoso di sini
-                    print("bandung_bondowoso")
+                    if command == 'summonjin':
+                        UserData,UserLength = summonjin.summonjin(UserData,UserLength)
+                        print(UserData)
+                        print(UserLength)
+                    elif command == 'hapusjin':
+                        UserData,CandiData = hapusjin.HapusUser(UserData,UserLength,CandiData,CandiLength)
+                    elif command == 'ubahjin':
+                        UserData = ubahJin.ubahJin(UserData,UserLength)
+                    elif command == 'batchkumpul':
+                        BangunanData = batchkumpul.batchkumpul(UserData,UserLength,BangunanData)
+                    elif command == 'batchbangun':
+                        CandiData,CandiLength,BangunanData = batchbangun.batchbangun(UserData,UserLength,CandiData,CandiLength,BangunanData)
+                    elif command == 'laporanjin':
+                        laporanjin.laporanjin(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
+                    elif command == 'laporancandi':
+                        laporancandi.laporancandi(CandiData,CandiLength)
+                    elif command == 'save':
+                        save.save(UserData,CandiData,BangunanData)
                 elif role == "roro_jonggrang":
                     if command == 'logout':
                         status,role = logout.logout(status)
@@ -38,17 +57,17 @@ if __name__ == "__main__" :
                         CandiData = hancurkanCandi.hancurkanCandi(CandiData,CandiLength)
                     elif command == 'ayamberkokok':
                         ayamBerkokok.ayamBerkokok(CandiData,CandiLength)
-                        print("\n\nSaving Data... \n")
-                        save.save(CandiData,BangunanData)
                         break
                     elif command == 'save':
-                        save.save(CandiData,BangunanData)
+                        save.save(UserData,CandiData,BangunanData)
                 elif role == "jin_pengumpul":
-                    #fungsi2 jin pengumpul
-                    print("jin_pengumpul")
+                    if command == "kumpul":
+                        BangunanData = kumpul.kumpul(BangunanData)
                 elif role == "jin_pembangun":
-                    #fungsi2 jin pembangun
-                    print("jin_pembangun")
+                    if command == "bangun":
+                        CandiData,CandiLength,BangunanData = bangun.bangun(username,CandiData,CandiLength,BangunanData)
+                    
+
 
 
        

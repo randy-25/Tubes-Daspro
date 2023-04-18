@@ -15,7 +15,9 @@ def listToStr(aList):
                 stringList += aList[i]
     return stringList
 
-def save(candi,bahanBangunan): #file content dari array
+def save(user,candi,bahanBangunan): #file content dari array
+    user = listToStr(user)
+    user = "username;password;role" + user
     candi = listToStr(candi)
     candi = "id;pembuat;pasir;batu;air" + candi
     bahanBangunan = listToStr(bahanBangunan)
@@ -24,11 +26,17 @@ def save(candi,bahanBangunan): #file content dari array
     folder = './save/' + folderName
     if not os.path.exists('save'):
         os.mkdir('save')
-    filePath1 = os.path.join(folder, "candi.csv")
-    filePath2 = os.path.join(folder, "bahan_bangunan.csv")
+
+    filePath1 = os.path.join(folder, "user.csv")
+    filePath2 = os.path.join(folder, "candi.csv")
+    filePath3 = os.path.join(folder, "bahan_bangunan.csv")
+
     if not os.path.exists(folder):
         os.mkdir(folder)
+
     with open(filePath1, 'w') as f:
-        f.write(candi)
+        f.write(user)
     with open(filePath2, 'w') as f:
+        f.write(candi)
+    with open(filePath3, 'w') as f:
         f.write(bahanBangunan)

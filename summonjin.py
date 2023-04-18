@@ -52,6 +52,7 @@ def summonjin(userData,userLength):
             print("\nPassword panjangnya harus 5-25 karakter!")
             password = input("Masukkan password jin:")
         #append data baru ke user data
-    return userData  
+        userData = personalCommand.appendX([username,password,'jin_pembangun'],userData,userLength)
+    return userData,(userLength + 1)
 
 #user data disimpan terlebih dahulu, jika di save diakhir baru memasukkan ke file csv

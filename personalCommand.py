@@ -40,3 +40,10 @@ def appendX(X,listX:list,length:int)->list :
         newListX[i] = listX[i]
     newListX[length] = X
     return newListX
+
+def cekJumlahCandi(candiData, candiLength):
+    jumlahCandi = 0
+    for i in range(candiLength):
+        if candiData[i][0] != None:
+            jumlahCandi += 1
+    return jumlahCandi

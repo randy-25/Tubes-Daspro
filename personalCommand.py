@@ -32,3 +32,11 @@ def getData(length:int,category:int,StringOF:str) ->list:
             data[i][j] += StringOF[k]    
     # dataX = [['' for i in range(length)] for j in range(category)]
     return data
+
+
+def appendX(X,listX:list,length:int)->list :
+    newListX = [None for i in range(length+1)]
+    for i in range(length):
+        newListX[i] = listX[i]
+    newListX[length] = X
+    return newListX

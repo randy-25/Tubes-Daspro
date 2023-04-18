@@ -1,5 +1,7 @@
+from typing import Tuple
+
 #Fungsi cek login
-def cekLogin(username:str,password:str,UserData:list,UserLength:list) -> tuple:    
+def cekLogin(username:str,password:str,UserData:list,UserLength:list) -> Tuple[int,str]:    
     data = UserData
     code = 0
     for i in range (UserLength):

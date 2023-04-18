@@ -1,67 +1,57 @@
-## Read dari File
-# Engga tau caranya
+import personalCommand
 
-user = ["" for i in range (102)]
-passw = ["" for i in range(102)]
-role = ["" for i in range(102)]
-# Panjang array dipilih 102 karena jin maksimum berjumlah 100 dengan Bandung Bondowoso dan Roro Jonggrang
-
-def summonjin(arr_user,arr_password,arr_role,i):
-    # i merupakan patokan indeks dari ketiga array.
-    def cekUsername(arr,username): # -> Boolean
+def cekUsername(userData,userLength,username): # -> Boolean
         # Fungsi untuk mengecek keberadaan username didalam array username
-        for i in range(102):
-            if username == arr[i]:
+        for i in range(userLength):
+            if username == userData[i][0]:
                 return True
-                break  
         return False
 
-    cek = True
-    while (cek == True):
+def summonjin(userData,userLength):
+    print("Jenis jin yang dapat dipanggil: ")
+    print("(1) Pengumpul - Bertugas mengumpulkan bahan bangunan")
+    print("(2) Pembangun - Bertugas membangun candi \n\n")
+
+    jenis_jin = int(input("Masukkan jenis jin yang ingin dipanggil: "))
+    while (jenis_jin != 1 and jenis_jin != 2):
+        print(f"Tidak ada jenis jin bernomor “{jenis_jin}”!")
+        print("\n\n")
         print("Jenis jin yang dapat dipanggil: ")
         print("(1) Pengumpul - Bertugas mengumpulkan bahan bangunan")
         print("(2) Pembangun - Bertugas membangun candi \n\n")
 
         jenis_jin = int(input("Masukkan jenis jin yang ingin dipanggil: "))
 
-        # Jika memilih jin Pengumpul
-        if (jenis_jin == 1):
-            print("Memilih Jin Pengumpul\n")
-            username = input("Masukkan username jin:")
-            # Kasus Username Udah Diambil
-            while (cekUsername(user,username)==True):
-                print(f"Username {username} sudah diambil\n")
-                username = input("Masukkan username jin:")
-                password = input("Masukkan password jin:")
+    # Jika memilih jin Pengumpul
+    if (jenis_jin == 1):
+        print("Memilih Jin Pengumpul\n")
+        username = input("Masukkan username jin:")
+        # Kasus Username Udah Diambil
+        while (cekUsername(userData,userLength,username)):
+            print(f"Username {username} sudah diambil\n")
+            username = input("Masukkan username jin:")        
+        password = input("Masukkan password jin:")
+        # Kasus Password Kurang bukan diantara 5-25 karakter
+        while (not(5 <= len(password) <= 25)):
+            print("\nPassword panjangnya harus 5-25 karakter!")
             password = input("Masukkan password jin:")
-            # Kasus Password Kurang bukan diantara 5-25 karakter
-            while (not(5 <= len(password) <= 25)):
-                print("\nPassword panjangnya harus 5-25 karakter!")
-                password = input("Masukkan password jin:")
-            user[i]=username
-            passw[i]=password
-            role[i]= "Jin_Pengumpul"
+        #append data baru ke user data
+        userData = personalCommand.appendX([username,password,'jin_pengumpul'],userData,userLength)
 
-
-        elif (jenis_jin ==2):
-            print("Memilih Jin Pembangun\n")
+    elif (jenis_jin ==2):
+        print("Memilih Jin Pembangun\n")
+        username = input("Masukkan username jin:")
+        # Kasus Username Udah Diambil
+        while (cekUsername(userData,userLength,username)==True):
+            print(f"Username {username} sudah diambil\n")
             username = input("Masukkan username jin:")
-            # Kasus Username Udah Diambil
-            while (cekUsername(user,username)==True):
-                print(f"Username {username} sudah diambil\n")
-                username = input("Masukkan username jin:")
-                password = input("Masukkan password jin:")
+
+        password = input("Masukkan password jin:")
+        # Kasus Password Kurang bukan diantara 5-25 karakter
+        while (not(5 <= len(password) <= 25)):
+            print("\nPassword panjangnya harus 5-25 karakter!")
             password = input("Masukkan password jin:")
-            # Kasus Password Kurang bukan diantara 5-25 karakter
-            while (not(5 <= len(password) <= 25)):
-                print("\nPassword panjangnya harus 5-25 karakter!")
-                password = input("Masukkan password jin:")
-            user[i]=username
-            passw[i]=password
-            role[i]= "Jin_Pembangun"
+        #append data baru ke user data
+    return userData  
 
-        else:
-            print(f"Tidak ada jin bernomor {jenis_jin}")        
-
-## Write arraynya ke file user.csv
-# Engga tau caranya
+#user data disimpan terlebih dahulu, jika di save diakhir baru memasukkan ke file csv

@@ -3,9 +3,9 @@ import personalCommand
 
 
 def bangun(username,candiData,candiLength,bangunanData):
-    pasir = random.randint(0, 5)    # kalau mengerjakan b1 bisa diganti
-    batu = random.randint(0, 5)
-    air = random.randint(0, 5)
+    pasir = random.randint(1, 5)    # kalau mengerjakan b1 bisa diganti
+    batu = random.randint(1, 5)
+    air = random.randint(1, 5)
 
     if int(bangunanData[0][2]) < pasir or int(bangunanData[1][2]) < batu or int(bangunanData[2][2]) < air :
         print("Bahan bangunan tidak mencukupi.")
@@ -14,19 +14,20 @@ def bangun(username,candiData,candiLength,bangunanData):
     else :
         jumlahCandi = personalCommand.cekJumlahCandi(candiData,candiLength)
         cek = True
-        if jumlahCandi <= 100:
+        if jumlahCandi <= 99:
             for i in range(candiLength):
-                if candiData[i][0] == None :
+                if candiData[i][0] == None or candiData[i][0] == 'None' :
+                    print(candiData[i][0])
                     cek = False
-                    candiData[i][0] = i+1
+                    candiData[i][0] = str(i)
                     candiData[i][1] = username
-                    candiData[i][2] = pasir
-                    candiData[i][3] = batu
-                    candiData[i][4] = air
+                    candiData[i][2] = str(pasir)
+                    candiData[i][3] = str(batu)
+                    candiData[i][4] = str(air)
                     jumlahCandi += 1
                     break
             if cek: #tidak ada yg none
-                candiData = personalCommand.appendX([str(candiLength+1),username,str(pasir),str(batu),str(air)],candiData,candiLength)
+                candiData = personalCommand.appendX([str(candiLength),username,str(pasir),str(batu),str(air)],candiData,candiLength)
                 candiLength += 1
                 jumlahCandi += 1
             bangunanData[0][2] = str(int(bangunanData[0][2]) - pasir)

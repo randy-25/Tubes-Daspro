@@ -1,7 +1,29 @@
+import personalCommand
+
+def getUniqueValue(aList,length):
+    dataX = []
+    lengthX = 0
+    for i in range(length):
+        if aList[i][0] != None:
+            if lengthX == 0:
+                dataX = personalCommand.appendX(aList[i][1],dataX,lengthX)
+                lengthX += 1
+            else:
+                marker = 0
+                for j in range(lengthX):
+                    if aList[i][1] == dataX[j]:
+                        marker += 1
+                        break
+                if marker == 0:
+                    dataX = personalCommand.appendX(aList[i][1],dataX,lengthX)
+                    lengthX += 1
+    return dataX, lengthX
+
 def cekUser(laporCandi, candiMaker,totalJinPembangun):
         for i in range(totalJinPembangun):
             if candiMaker == laporCandi[i][0]:
                 return True,i
+        return False,None
 
 def stringCompare(stringA,stringB):
     a = -999
@@ -31,39 +53,35 @@ def laporanjin(userData,userLength,candiData,candiLength,bangunanData,bangunanLe
             elif userData[i][2] == "jin_pembangun":
                 totalJinPembangun += 1
     
-    laporCandi = [[None,0] for j in range(totalJinPembangun)]
-    k = 0
-    for i in range (userLength) :
-        if userData[i][2] == "jin_pembangun":
-            laporCandi[k][0] = userData[i][0]
-            k += 1
-
-    for i in range(candiLength):
-        cek,j = cekUser(laporCandi,candiData[i][1],totalJinPembangun)
-        if cek:
-            laporCandi[j][1] += 1
+    candiMaker,MakerLength = getUniqueValue(candiData,candiLength)
+    sumMaker = [0 for i in range (MakerLength)]
+    for i in range(MakerLength):
+        for j in range(candiLength):
+            if candiData[j][0] != None:
+                if candiData[j][1] == candiMaker[i]:
+                    sumMaker[i] += 1
     max = -999
     min = 999
-    for i in range(totalJinPembangun):
-        if max < laporCandi[i][1]:
-            max = laporCandi[i][1]
-            jinTerajin = laporCandi[i][0]
-        if min > laporCandi[i][1]:
-            min = laporCandi[i][1]
-            jinTermalas = laporCandi[i][0]
-        if max == laporCandi[i][1]:
-            a,b = stringCompare(jinTerajin,laporCandi[i][0])
+    for i in range(MakerLength):
+        if max < sumMaker[i]:
+            max = sumMaker[i]
+            jinTerajin = candiMaker[i]
+        if min > sumMaker[i]:
+            min = sumMaker[i]
+            jinTermalas = candiMaker[i]
+        if max == sumMaker[i]:
+            a,b = stringCompare(jinTerajin,candiMaker[i])
             if a > b:
-                jinTerajin = laporCandi[i][0]
-        if min == laporCandi[i][1]:
-            a,b = stringCompare(jinTermalas,laporCandi[i][0])
+                jinTerajin = candiMaker[i]
+        if min == sumMaker[i]:
+            a,b = stringCompare(jinTermalas,candiMaker[i])
             if a < b:
-                jinTermalas = laporCandi[i][0]
+                jinTermalas = candiMaker[i]
     
     jumlahPasir = bangunanData[0][2]
     jumlahBatu = bangunanData[1][2]
     jumlahAir = bangunanData[2][2]
-    if totalJinPembangun != 0:
+    if MakerLength != 0:
         print(f"> Total Jin: {totalJin}")
         print(f"> Total Jin Pengumpul: {totalJinPengumpul}")
         print(f"> Total Jin Pembangun: {totalJinPembangun}")

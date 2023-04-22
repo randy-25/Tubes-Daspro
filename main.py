@@ -27,15 +27,13 @@ if __name__ == "__main__" :
             elif command == 'logout':
                 status,role = logout.logout(status)
             elif command == 'exit':
-                exit = exit.exit(CandiData,BangunanData)
+                exit = exit.exit(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
                 if exit == 0:
                     break
             if status == 1:
                 if role == "bandung_bondowoso":
                     if command == 'summonjin':
                         UserData,UserLength = summonjin.summonjin(UserData,UserLength)
-                        print(UserData)
-                        print(UserLength)
                     elif command == 'hapusjin':
                         UserData,CandiData = hapusjin.HapusUser(UserData,UserLength,CandiData,CandiLength)
                     elif command == 'ubahjin':
@@ -49,7 +47,7 @@ if __name__ == "__main__" :
                     elif command == 'laporancandi':
                         laporancandi.laporancandi(CandiData,CandiLength)
                     elif command == 'save':
-                        save.save(UserData,CandiData,BangunanData)
+                        save.save(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
                 elif role == "roro_jonggrang":
                     if command == 'logout':
                         status,role = logout.logout(status)
@@ -59,7 +57,7 @@ if __name__ == "__main__" :
                         ayamBerkokok.ayamBerkokok(CandiData,CandiLength)
                         break
                     elif command == 'save':
-                        save.save(UserData,CandiData,BangunanData)
+                        save.save(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
                 elif role == "jin_pengumpul":
                     if command == "kumpul":
                         BangunanData = kumpul.kumpul(BangunanData)

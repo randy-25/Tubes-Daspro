@@ -25,8 +25,8 @@ def Main() -> tuple:
         with open (args.load +'/bahan_bangunan.csv','r') as f:
             BangunanCategory = personalCommand.getCategory(f)
             BangunanLength,BangunanStringOF = personalCommand.file(f)
-        UserData = personalCommand.getData(UserLength,UserCategory,UserStringOF)
-        CandiData = personalCommand.getData(CandiLength,CandiCategory,CandiStringOF)
-        BangunanData = personalCommand.getData(BangunanLength,BangunanCategory,BangunanStringOF)
+        UserData = personalCommand.getUser(UserLength,UserCategory,UserStringOF)
+        CandiData, CandiLength = personalCommand.getCandi(CandiLength,CandiCategory,CandiStringOF)
+        BangunanData,BangunanLength = personalCommand.getBangunan(BangunanLength,BangunanCategory,BangunanStringOF)
         return UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength
 

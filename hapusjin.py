@@ -21,7 +21,7 @@ def HapusUser(userData,userLength,candiData,candiLength):
         print("Tidak ada jin dengan username tersebut.")
         return userData,candiData
     elif cek == True:
-        confirm = input("Apakah anda yakin ingin menghapus jin dengan username Jin1 (Y/N)? ")
+        confirm = input(f"Apakah anda yakin ingin menghapus jin dengan username {namaJin} (Y/N)? ")
         if confirm == 'y' or confirm == 'Y':
             userData[index][0] = None
             userData[index][1] = None

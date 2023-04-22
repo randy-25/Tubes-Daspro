@@ -20,9 +20,9 @@ def batchbangun(userData,userLength,candiData,candiLength,bangunanData):
     totalAir = 0
 
     for i in range(jumlahJinPembangun):
-        pasir = random.randint(0, 5)    # kalau mengerjakan b1 bisa diganti
-        batu = random.randint(0, 5)
-        air = random.randint(0, 5)
+        pasir = random.randint(1, 5)    # kalau mengerjakan b1 bisa diganti
+        batu = random.randint(1, 5)
+        air = random.randint(1, 5)
         dataBatch[i][0] = userData[indexJinPembangun[i]][0]
         dataBatch[i][1] = pasir
         dataBatch[i][2] = batu
@@ -31,7 +31,6 @@ def batchbangun(userData,userLength,candiData,candiLength,bangunanData):
         totalPasir += pasir
         totalBatu += batu
         totalAir += air
-    
     if int(bangunanData[0][2]) < totalPasir or int(bangunanData[1][2]) < totalBatu or int(bangunanData[2][2]) < totalAir :
         print(f"Mengerahkan {jumlahJinPembangun} jin untuk membangun candi dengan total bahan {totalPasir} pasir, {totalBatu} batu, dan {totalAir} air.")
         printSTR = "Bangun gagal. Kurang "
@@ -55,21 +54,24 @@ def batchbangun(userData,userLength,candiData,candiLength,bangunanData):
         return candiData,candiLength,bangunanData
     else :
         jumlahCandi = personalCommand.cekJumlahCandi(candiData,candiLength)
-        if jumlahCandi <= 100:
+        if jumlahCandi <= 99:
             j = 0
             for i in range(candiLength):
-                if candiData[i][0] == None :
-                    candiData[i][0] = i+1
-                    candiData[i][1] = dataBatch[j][0]
-                    candiData[i][2] = str(dataBatch[j][1])
-                    candiData[i][3] = str(dataBatch[j][2])
-                    candiData[i][4] = str(dataBatch[j][3])
-                    jumlahCandi += 1
-                    j += 1
+                if candiData[i][0] == None or candiData[i][0] == 'None' :
+                    if j < jumlahJinPembangun:
+                        candiData[i][0] = str(i)
+                        candiData[i][1] = (dataBatch[j][0])
+                        candiData[i][2] = str(dataBatch[j][1])
+                        candiData[i][3] = str(dataBatch[j][2])
+                        candiData[i][4] = str(dataBatch[j][3])
+                        jumlahCandi += 1
+                        j += 1
+                    else :
+                        break
             if j < jumlahJinPembangun : #ada yang tersisa tidak dari none
                 for i in range(j,jumlahJinPembangun):
-                    if jumlahCandi <= 100:
-                        candiData = personalCommand.appendX([str(candiLength+1),dataBatch[j][0],str(dataBatch[j][1]),str(dataBatch[j][2]),str(dataBatch[j][3])],candiData,candiLength)
+                    if jumlahCandi <= 99:
+                        candiData = personalCommand.appendX([str(candiLength),dataBatch[j][0],str(dataBatch[j][1]),str(dataBatch[j][2]),str(dataBatch[j][3])],candiData,candiLength)
                         candiLength += 1
                         jumlahCandi += 1
                         j += 1

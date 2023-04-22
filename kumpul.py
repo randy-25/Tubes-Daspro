@@ -1,6 +1,6 @@
 import random
 def kumpul(bangunanData):   #f7 (prosedur???)
-    # Asumsi sudah dibuat fungsi untuk mengubah file bahan bangunan menjadi matriks databangunanData
+    # Sudah dibuat fungsi untuk mengubah file bahan bangunan menjadi matriks bangunanData
 
     # mengumpulkan bahan bahan bangunan
     pasir = random.randint(0, 5)    # kalau mengerjakan b1 bisa diganti
@@ -15,5 +15,3 @@ def kumpul(bangunanData):   #f7 (prosedur???)
     # output
     print("Jin menemukan", pasir, "pasir,", batu, "batu, dan", air, "air.")
     return bangunanData
-
-# dataBahanBangunan = [['pasir', '', '0'], ['batu', '', '0'], ['air', '', '0']]

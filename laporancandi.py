@@ -1,3 +1,14 @@
+def IntToRupiah(angka):
+    angka = str(angka)
+    dum = ""; dum2 = ""
+    for i in range(len(angka)):
+        if i < len(angka)-3:
+            dum += angka[i]
+        elif i >= len(angka)-3:
+            dum2 += angka[i]
+    final = dum + "." + dum2
+    return final
+
 def laporancandi(candiData,candiLength):
     totalCandi = 0
     totalPasir = 0
@@ -31,37 +42,8 @@ def laporancandi(candiData,candiLength):
             if hargaCandiTermurah > (hargaPasir + hargaBatu + hargaAir):
                 hargaCandiTermurah = hargaPasir + hargaBatu + hargaAir
                 idCandiTermurah = candiData[i][0]
-    # hargaCandiTermahal = str(hargaCandiTermahal)
-    # dummySTR = ''
-    # for i in range(len(hargaCandiTermahal)-1,-1,-3):
-    #     dummySTR = '.' + hargaCandiTermahal[i-2] + hargaCandiTermahal[i-1] + hargaCandiTermahal[i] + dummySTR
-    # hargaCandiTermahal = ''
-    # if dummySTR[0] == '.':
-    #     if dummySTR[2] == '0':
-    #         for i in range(3,len(dummySTR)):
-    #             hargaCandiTermahal += dummySTR[i]
-    #     elif dummySTR[1] == '0':
-    #         for i in range(2,len(dummySTR)):
-    #             hargaCandiTermahal += dummySTR[i]
-    #     else:
-    #         for i in range(1,len(dummySTR)):
-    #             hargaCandiTermahal += dummySTR[i]
-        
-    # hargaCandiTermurah = str(hargaCandiTermurah)
-    # dummySTR = ''
-    # for i in range(len(hargaCandiTermurah)-1,-1,-3):
-    #     dummySTR = '.' + hargaCandiTermurah[i-2] + hargaCandiTermurah[i-1] + hargaCandiTermurah[i] + dummySTR
-    # hargaCandiTermurah = ''
-    # if dummySTR[0] == '.':
-    #     if dummySTR[2] == '0':
-    #         for i in range(3,len(dummySTR)):
-    #             hargaCandiTermurah += dummySTR[i]
-    #     elif dummySTR[1] == '0':
-    #         for i in range(2,len(dummySTR)):
-    #             hargaCandiTermurah += dummySTR[i]
-    #     else:
-    #         for i in range(1,len(dummySTR)):
-    #             hargaCandiTermurah += dummySTR[i]
+    hargaCandiTermahal = IntToRupiah(hargaCandiTermahal)
+    hargaCandiTermurah = IntToRupiah(hargaCandiTermurah)
 
     if totalCandi != 0:
         print(f"> Total Candi: {totalCandi}")

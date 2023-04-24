@@ -1,5 +1,6 @@
 def logout(status:int)->tuple:
     if status == 1 :
+        print("Logout berhasil!")
         return 0,None
     else :
         print("Logout gagal!")

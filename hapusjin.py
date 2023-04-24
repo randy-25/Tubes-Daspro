@@ -27,6 +27,7 @@ def HapusUser(userData,userLength,candiData,candiLength):
             userData[index][1] = None
             userData[index][2] = None
             candiData = HapusCandi(namaJin,candiData,candiLength)
+            print("Jin Berhasil dihapus")
             return userData,candiData
         elif confirm == 'n' or confirm == 'N':
             print("Jin tidak jadi dihapus")

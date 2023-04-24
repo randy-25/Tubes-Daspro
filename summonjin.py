@@ -53,6 +53,7 @@ def summonjin(userData,userLength):
                 password = input("Masukkan password jin:")
             #append data baru ke user data
             userData = personalCommand.appendX([username,password,'jin_pembangun'],userData,userLength)
+        print("Jin Berhasil disummon")
         return userData,(userLength + 1)
     else:
         print("Jumlah Jin telah maksimal! (100 jin). Bandung tidak dapat men-summon lebih dari itu")

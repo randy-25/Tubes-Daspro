@@ -41,5 +41,6 @@ def save(userData,userLength,candiData,candiLength,bangunanData,bangunanLength):
         f.write(candiData)
     with open(filePath3, 'w') as f:
         f.write(bangunanData)
+    print("Data berhasil disimpan")
 
 

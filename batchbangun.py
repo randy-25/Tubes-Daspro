@@ -47,9 +47,10 @@ def batchbangun(userData,userLength,candiData,candiLength,bangunanData):
             penandaBatu = True
         if int(bangunanData[2][2]) < totalAir:
             if penandaBatu or penandaPasir:
-                printSTR += ", " + str((totalBatu - int(bangunanData[2][2]))) + " air."
+                printSTR += ", " + str((totalAir - int(bangunanData[2][2]))) + " air"
             else:
-                printSTR += str((totalBatu - int(bangunanData[2][2]))) + " batu."
+                printSTR += str((totalAir - int(bangunanData[2][2]))) + " batu"
+        printSTR += "."
         print(printSTR)
         return candiData,candiLength,bangunanData
     else :

@@ -1,3 +1,8 @@
+# Prosedur untuk menampilkan help sesuai role
+
+# KAMUS LOKAL
+
+# Algoritma
 def help(status,role):
     print("=========== HELP ===========")
     # yg belom login

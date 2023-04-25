@@ -1,8 +1,23 @@
 import random
 import personalCommand
+from typing import Tuple
 
+# Fungsi untuk mengerahkan seluruh jin pembangun untuk membangun jin
 
-def batchbangun(userData,userLength,candiData,candiLength,bangunanData):
+# KAMUS LOKAL
+# type Pembuat : < username : string, pasir, batu, air : integer >
+
+# dataBatch : array of Pembuat
+# jumlahJinPembangun : integer
+# indexJinPembangun : array of integer
+# totalPasir, totalBatu, totalAir : integer
+# pasir, batu, air : integer
+# penandaPasir, penandaBatu : Boolean
+# printSTR : string
+# jumlahCandi : integer
+
+# Algoritma
+def batchbangun(userData: list,userLength: int,candiData: list,candiLength: int,bangunanData: list)->Tuple[list,int,list]:
     jumlahJinPembangun = 0
     indexJinPembangun = []
     for i in range(userLength):

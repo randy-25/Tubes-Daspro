@@ -1,5 +1,11 @@
 import save
 
+# Fungsi untuk exit
+
+# KAMUS LOKAL
+# confirm : character
+
+# Algoritma
 def exit(userData,userLength,candiData, candiLength ,bangunanData, bangunanLength):
     confirm = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) ")
     while confirm != 'y' and confirm != 'n':

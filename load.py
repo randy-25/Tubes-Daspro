@@ -2,8 +2,18 @@ import os
 import argparse
 import personalCommand
 
-def Main() -> tuple:
+# Fungsi untuk menload database dari parent folder ./save
+
+# KAMUS LOKAL
+# args.load : string
+# UserCategory, CandiCategory, BangunanCategory : integer
+# UserLength, CandiLength, BangunanLength : integer
+# UserStringOF, CandiStringOF, BangunanStringOF : string
+
+# Algoritma
+def load() -> tuple:
     parser = argparse.ArgumentParser()
+    print(type(parser))
     parser.add_argument("load",help="Berikan nama folder yang ingin di load!",nargs='?')
     args = parser.parse_args()
     if args.load is None:

@@ -1,7 +1,13 @@
 from typing import Tuple
 
+# Program untuk fungsi login
+
+# KAMUS
+# type dataLogin : < status : integer, username, role : string >
+
+#Algoritma
 #Fungsi cek login
-def cekLogin(username:str,password:str,UserData:list,UserLength:list) -> Tuple[int,str]:    
+def cekLogin(username:str,password:str,UserData:list,UserLength:int) -> Tuple[int,str]:    
     data = UserData
     code = 0
     for i in range (UserLength):
@@ -15,7 +21,11 @@ def cekLogin(username:str,password:str,UserData:list,UserLength:list) -> Tuple[i
     return code,None
 
 #Fungsi login
-def login(status:str, username:str,role:str,UserData:list,UserLength:list) -> tuple:
+# KAMUS LOKAL
+# username, password : string
+
+# Algoritma
+def login(status:str, username:str,role:str,UserData:list,UserLength:int) -> Tuple[int,str,str]:
     if status == 1:
         print("Login gagal!")
         print("Anda telah login dengan username " + username +" silahkan lakukan “logout” sebelum melakukan login kembali.")

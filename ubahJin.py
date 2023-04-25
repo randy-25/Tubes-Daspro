@@ -1,4 +1,13 @@
-def ubahJin(userData,userLength):
+# Fungsi mengubah role jin
+
+# KAMUS LOKAL
+# namaJin : string
+# cek : Boolean
+# index : integer
+# confirm : character
+
+# Algoritma
+def ubahJin(userData:list,userLength : int)-> list:
     namaJin = input("Masukkan username jin : ")
     cek = False 
     index = -999

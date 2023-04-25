@@ -1,8 +1,15 @@
+from typing import Tuple
+
 import random
 import personalCommand
 
+# Fungsi untuk bangun jin (role jin pembangun)
 
-def bangun(username,candiData,candiLength,bangunanData):
+# KAMUS LOKAL 
+# pasir, batu, air : integer
+
+# Algoritma
+def bangun(username: str,candiData:list,candiLength:int,bangunanData:list)-> Tuple[list, int, list]:
     pasir = random.randint(1, 5)    # kalau mengerjakan b1 bisa diganti
     batu = random.randint(1, 5)
     air = random.randint(1, 5)

@@ -1,3 +1,7 @@
+from typing import Tuple
+# Fungsi menghapus candi yang dibuat oleh jin yang candinya dihapus
+
+# Algoritma
 def HapusCandi(namaJin:str,candiData:list,candiLength:int) -> list:
     for i in range(candiLength):
         if namaJin == candiData[i][1]:
@@ -8,7 +12,15 @@ def HapusCandi(namaJin:str,candiData:list,candiLength:int) -> list:
             candiData[i][4] = None
     return candiData
 
-def HapusUser(userData,userLength,candiData,candiLength):
+# Fungsi menghapus Jin
+
+# KAMUS LOKAL
+# index : integer
+# namaJin : string
+# cek : boolean
+
+# Algoritma
+def HapusUser(userData: list,userLength : int,candiData: list,candiLength: int) -> Tuple[list,list] :
     namaJin = input("Masukkan username jin : ")
     cek = False
     index = -999

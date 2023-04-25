@@ -1,13 +1,14 @@
+from typing import Tuple
 import personalCommand
 
-def cekUsername(userData,userLength,username): # -> Boolean
+def cekUsername(userData : list,userLength : int ,username : str) -> bool :
         # Fungsi untuk mengecek keberadaan username didalam array username
         for i in range(userLength):
             if username == userData[i][0]:
                 return True
         return False
 
-def summonjin(userData,userLength):
+def summonjin(userData : list,userLength : int)-> Tuple[list,int]:
     if userLength < 102:
         print("Jenis jin yang dapat dipanggil: ")
         print("(1) Pengumpul - Bertugas mengumpulkan bahan bangunan")
@@ -58,5 +59,3 @@ def summonjin(userData,userLength):
     else:
         print("Jumlah Jin telah maksimal! (100 jin). Bandung tidak dapat men-summon lebih dari itu")
         return userData,userLength
-
-#user data disimpan terlebih dahulu, jika di save diakhir baru memasukkan ke file csv

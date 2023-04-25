@@ -1,4 +1,6 @@
-def logout(status:int)->tuple:
+from typing import Tuple
+
+def logout(status:int)->Tuple[int,str]:
     if status == 1 :
         print("Logout berhasil!")
         return 0,None

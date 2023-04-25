@@ -1,5 +1,13 @@
 import random
 
+# Fungsi untuk mengerahkan seluruh jin pengumpul untuk mengumpulkan bahan
+
+# KAMUS LOKAL 
+# jumlahJin : integer
+# totalPasir, totalBatu, totalAir : integer
+# pasir, batu, air : integer
+
+# Algoritma
 def batchkumpul(userData:list,userLength:int,bangunanData:list) -> list:
     jumlahJin = 0
     for i in range(userLength):

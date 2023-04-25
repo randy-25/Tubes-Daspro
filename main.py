@@ -9,8 +9,25 @@ import summonjin, hapusjin, ubahJin,batchkumpul, batchbangun, laporanjin, lapora
 import kumpul #jin pengumpul
 import bangun #jin pembangun
 
+
+# PROGRAM PERMAINAN BANDUNG BONDOWOSO DAN RORO JONGGRANG
+
+# Kamus Global
+# dataGame : < UserData : array of String, UserLength : Integer
+#          CandiData : array of string, CandiLength : Integer
+#          BangunanData : array of string, BangunanLength : Integer >
+# command : string
+# status : integer
+# username : string
+# role : string
+
+# constant NoneStr : string = “”
+# constant NoneInt : Int = -9999
+
+
+# Algoritma
 if __name__ == "__main__" :
-    UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength = load.Main()
+    UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength = load.load()
     #kalo datanya ga none (nama foldernya bener)
     if UserData != None or UserLength != None or CandiData != None or CandiLength != None or BangunanData != None or BangunanLength != None :
         #cek sudah login apa belom di sini

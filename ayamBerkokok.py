@@ -1,3 +1,9 @@
+# Prosedur untuk menghitung jumlah candi saat dipagi hari dan menentukan siapa yang menang
+
+# KAMUS LOKAL
+# count : integer
+
+# Algoritma
 def ayamBerkokok(CandiData:list,CandiLength:int):
     print("Kukuruyuk.. Kukuruyuk..")
     count = 0

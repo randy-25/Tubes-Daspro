@@ -1,15 +1,16 @@
-def IntToRupiah(angka):
-    angka = str(angka)
-    dum = ""; dum2 = ""
-    for i in range(len(angka)):
-        if i < len(angka)-3:
-            dum += angka[i]
-        elif i >= len(angka)-3:
-            dum2 += angka[i]
-    final = dum + "." + dum2
-    return final
+import personalCommand
 
-def laporancandi(candiData,candiLength):
+# Prosedur untuk menampilkan laporan candi
+
+# KAMUS LOKAL
+# totalCandi : integer
+# totalPasir, totalBatu, totalAir : integer
+# hargaPasir, hargaBatu, hargaAir : integer
+# hargaCandiTermahal, hargaCandiTermurah : integer
+# idCandiTermahal, idCandiTermurah : integer
+
+# Algoritma
+def laporancandi(candiData: list,candiLength: int):
     totalCandi = 0
     totalPasir = 0
     totalBatu = 0
@@ -42,8 +43,8 @@ def laporancandi(candiData,candiLength):
             if hargaCandiTermurah > (hargaPasir + hargaBatu + hargaAir):
                 hargaCandiTermurah = hargaPasir + hargaBatu + hargaAir
                 idCandiTermurah = candiData[i][0]
-    hargaCandiTermahal = IntToRupiah(hargaCandiTermahal)
-    hargaCandiTermurah = IntToRupiah(hargaCandiTermurah)
+    hargaCandiTermahal = personalCommand.IntToRupiah(hargaCandiTermahal)
+    hargaCandiTermurah = personalCommand.IntToRupiah(hargaCandiTermurah)
 
     if totalCandi != 0:
         print(f"> Total Candi: {totalCandi}")

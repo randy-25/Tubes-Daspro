@@ -1,5 +1,5 @@
 import random
-def kumpul(bangunanData):   #f7 (prosedur???)
+def kumpul(bangunanData:list)->list:   #f7 (prosedur???)
     # Sudah dibuat fungsi untuk mengubah file bahan bangunan menjadi matriks bangunanData
 
     # mengumpulkan bahan bahan bangunan

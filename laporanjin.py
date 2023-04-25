@@ -1,5 +1,12 @@
 import personalCommand
 
+# Fungsi untuk mengambil nilai unik pada suatu array atau matriks
+
+# KAMUS LOKAL 
+# dataX : array of string
+# lengthX : integer
+
+# Algoritma
 def getUniqueValue(aList,length):
     dataX = []
     lengthX = 0
@@ -19,28 +26,17 @@ def getUniqueValue(aList,length):
                     lengthX += 1
     return dataX, lengthX
 
-def cekUser(laporCandi, candiMaker,totalJinPembangun):
-        for i in range(totalJinPembangun):
-            if candiMaker == laporCandi[i][0]:
-                return True,i
-        return False,None
+# Prosedur untuk menngeluarkan nilai dari laporan jin
 
-def stringCompare(stringA,stringB):
-    a = -999
-    b = -999
-    abjadListGede = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    abjadListKecil = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    for i in range(26):
-        if stringA[0] == abjadListKecil[i] :
-            a = i
-        if stringB[0] == abjadListKecil[i] :
-            b = i
-        if stringA[0] == abjadListGede[i] :
-            a = i
-        if stringB[0] == abjadListGede[i] :
-            b = i
-    return a,b
+# KAMUS LOKAL
+# totalJin, totalJinPengumpul, totalJinPembangun : integer
+# candiMaker : dataArray
+# sumMaker : array of integer
+# max, min : integer
+# jumlahPasir, jumlahBatu, jumlahAir : integer
+# jinTerajin, jinTermalas : string
 
+# Algoritma
 def laporanjin(userData,userLength,candiData,candiLength,bangunanData,bangunanLength):
     totalJin = 0
     totalJinPengumpul = 0
@@ -70,11 +66,11 @@ def laporanjin(userData,userLength,candiData,candiLength,bangunanData,bangunanLe
             min = sumMaker[i]
             jinTermalas = candiMaker[i]
         if max == sumMaker[i]:
-            a,b = stringCompare(jinTerajin,candiMaker[i])
+            a,b = personalCommand.stringCompare(jinTerajin,candiMaker[i])
             if a > b:
                 jinTerajin = candiMaker[i]
         if min == sumMaker[i]:
-            a,b = stringCompare(jinTermalas,candiMaker[i])
+            a,b = personalCommand.stringCompare(jinTermalas,candiMaker[i])
             if a < b:
                 jinTermalas = candiMaker[i]
     

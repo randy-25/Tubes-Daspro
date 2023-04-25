@@ -94,4 +94,46 @@ def cekJumlahCandi(candiData, candiLength):
             jumlahCandi += 1
     return jumlahCandi
 
+def stringCompare(stringA,stringB):
+    a = -999
+    b = -999
+    abjadListGede = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    abjadListKecil = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    for i in range(26):
+        if stringA[0] == abjadListKecil[i] :
+            a = i
+        if stringB[0] == abjadListKecil[i] :
+            b = i
+        if stringA[0] == abjadListGede[i] :
+            a = i
+        if stringB[0] == abjadListGede[i] :
+            b = i
+    return a,b
 
+def IntToRupiah(angka):
+    angka = str(angka)
+    dum = ""; dum2 = ""
+    for i in range(len(angka)):
+        if i < len(angka)-3:
+            dum += angka[i]
+        elif i >= len(angka)-3:
+            dum2 += angka[i]
+    final = dum + "." + dum2
+    return final
+
+def listToStr(aList,length):
+    stringList = ''
+    for i in range(length):
+        if aList[i][0] != None:
+            dummySTR = str(aList[i])
+            for j in range(len(dummySTR)):
+                if dummySTR[j] == '[':
+                    stringList += '\n'
+                elif dummySTR[j] == ',' and dummySTR[j-1] != ']':
+                    stringList += ';'
+                elif dummySTR[j] != ']' and dummySTR[j] != ',' and dummySTR[j] != "'" :
+                    if dummySTR[j] == " " and dummySTR[j-1] != ",":
+                        stringList += dummySTR[j]
+                    elif dummySTR[j] != " ":
+                        stringList += dummySTR[j]
+    return stringList

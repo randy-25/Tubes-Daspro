@@ -1,3 +1,10 @@
+# Fungsi untuk menghancurkan candi sesuai dengan inputan id
+
+# KAMUS LOKAL
+# id : string
+# confirm : character
+
+# Algoritma
 def hancurkanCandi(CandiData:list,CandiLength:int)->list:
     id = input("Masukkan ID candi: ")
     if int(id) > CandiLength-1 :

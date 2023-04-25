@@ -1,28 +1,19 @@
 import os.path
+import personalCommand
 
-def listToStr(aList,length):
-    stringList = ''
-    for i in range(length):
-        if aList[i][0] != None:
-            dummySTR = str(aList[i])
-            for j in range(len(dummySTR)):
-                if dummySTR[j] == '[':
-                    stringList += '\n'
-                elif dummySTR[j] == ',' and dummySTR[j-1] != ']':
-                    stringList += ';'
-                elif dummySTR[j] != ']' and dummySTR[j] != ',' and dummySTR[j] != "'" :
-                    if dummySTR[j] == " " and dummySTR[j-1] != ",":
-                        stringList += dummySTR[j]
-                    elif dummySTR[j] != " ":
-                        stringList += dummySTR[j]
-    return stringList
-        
+# Prosedur untuk menyimpan data permainan
+
+# KAMUS LOKAL
+# folderName, folder: string
+# filePath1, filePath2, filePath3 : string
+
+# Algoritma
 def save(userData,userLength,candiData,candiLength,bangunanData,bangunanLength): #file content dari array
-    userData = listToStr(userData,userLength)
+    userData = personalCommand.listToStr(userData,userLength)
     userData = "username;password;role" + userData
-    candiData = listToStr(candiData,candiLength)
+    candiData = personalCommand.listToStr(candiData,candiLength)
     candiData = "id;pembuat;pasir;batu;air" + candiData
-    bangunanData = listToStr(bangunanData,bangunanLength)
+    bangunanData = personalCommand.listToStr(bangunanData,bangunanLength)
     bangunanData = "nama;deskripsi;jumlah" + bangunanData
     folderName = input("Masukkan nama folder: ")
     folder = './save/' + folderName

@@ -6,14 +6,15 @@ def Main() -> tuple:
     parser = argparse.ArgumentParser()
     parser.add_argument("load",help="Berikan nama folder yang ingin di load!",nargs='?')
     args = parser.parse_args()
-    args.load = "./save/" + args.load
     if args.load is None:
         print("Tidak ada nama folder yang diberikan!")
         return  None,None,None,None,None,None
-    elif os.path.isdir(args.load) != True :
+    elif os.path.isdir("./save/" + args.load) != True :
+        args.load = "./save/" + args.load
         print("Folder " + args.load + " tidak ditemukan.")
         return  None,None,None,None,None,None
-    elif os.path.isdir(args.load):
+    elif os.path.isdir("./save/" + args.load):
+        args.load = "./save/" + args.load
         print('Selamat datang di program “Manajerial Candi"')
         with open (args.load  +'/user.csv','r') as f:
             UserCategory = personalCommand.getCategory(f)

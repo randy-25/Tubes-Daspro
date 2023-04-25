@@ -30,6 +30,8 @@ if __name__ == "__main__" :
                 exit = exit.exit(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
                 if exit == 0:
                     break
+            elif command == 'save':
+                save.save(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
             if status == 1:
                 if role == "bandung_bondowoso":
                     if command == 'summonjin':
@@ -46,8 +48,6 @@ if __name__ == "__main__" :
                         laporanjin.laporanjin(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
                     elif command == 'laporancandi':
                         laporancandi.laporancandi(CandiData,CandiLength)
-                    elif command == 'save':
-                        save.save(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
                 elif role == "roro_jonggrang":
                     if command == 'logout':
                         status,role = logout.logout(status)
@@ -56,8 +56,6 @@ if __name__ == "__main__" :
                     elif command == 'ayamberkokok':
                         ayamBerkokok.ayamBerkokok(CandiData,CandiLength)
                         break
-                    elif command == 'save':
-                        save.save(UserData,UserLength,CandiData,CandiLength,BangunanData,BangunanLength)
                 elif role == "jin_pengumpul":
                     if command == "kumpul":
                         BangunanData = kumpul.kumpul(BangunanData)

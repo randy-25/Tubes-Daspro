@@ -6,6 +6,7 @@ def Main() -> tuple:
     parser = argparse.ArgumentParser()
     parser.add_argument("load",help="Berikan nama folder yang ingin di load!",nargs='?')
     args = parser.parse_args()
+    args.load = "./save/" + args.load
     if args.load is None:
         print("Tidak ada nama folder yang diberikan!")
         return  None,None,None,None,None,None

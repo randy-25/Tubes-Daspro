@@ -1,30 +1,5 @@
 import personalCommand
 
-# Fungsi untuk mengambil nilai unik pada suatu array atau matriks
-
-# KAMUS LOKAL 
-# dataX : array of string
-# lengthX : integer
-
-# Algoritma
-def getUniqueValue(aList,length):
-    dataX = []
-    lengthX = 0
-    for i in range(length):
-        if aList[i][0] != None:
-            if lengthX == 0:
-                dataX = personalCommand.appendX(aList[i][1],dataX,lengthX)
-                lengthX += 1
-            else:
-                marker = 0
-                for j in range(lengthX):
-                    if aList[i][1] == dataX[j]:
-                        marker += 1
-                        break
-                if marker == 0:
-                    dataX = personalCommand.appendX(aList[i][1],dataX,lengthX)
-                    lengthX += 1
-    return dataX, lengthX
 
 # Prosedur untuk menngeluarkan nilai dari laporan jin
 
@@ -49,13 +24,31 @@ def laporanjin(userData,userLength,candiData,candiLength,bangunanData,bangunanLe
             elif userData[i][2] == "jin_pembangun":
                 totalJinPembangun += 1
     
-    candiMaker,MakerLength = getUniqueValue(candiData,candiLength)
+    # mendapatkan unique value dari data candi
+    candiMaker = []
+    MakerLength = 0
+    for i in range(candiLength):
+        if candiData[i][0] != None:
+            if MakerLength == 0:
+                candiMaker = personalCommand.appendX(candiData[i][1],candiMaker,MakerLength)
+                MakerLength += 1
+            else:
+                marker = 0
+                for j in range(MakerLength):
+                    if candiData[i][1] == candiMaker[j]:
+                        marker += 1
+                        break
+                if marker == 0:
+                    candiMaker = personalCommand.appendX(candiData[i][1],candiMaker,MakerLength)
+                    MakerLength += 1
+        
     sumMaker = [0 for i in range (MakerLength)]
     for i in range(MakerLength):
         for j in range(candiLength):
             if candiData[j][0] != None:
                 if candiData[j][1] == candiMaker[i]:
                     sumMaker[i] += 1
+    
     max = -999
     min = 999
     for i in range(MakerLength):

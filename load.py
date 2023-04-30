@@ -13,7 +13,6 @@ import personalCommand
 # Algoritma
 def load() -> tuple:
     parser = argparse.ArgumentParser()
-    print(type(parser))
     parser.add_argument("load",help="Berikan nama folder yang ingin di load!",nargs='?')
     args = parser.parse_args()
     if args.load is None:
@@ -29,7 +28,6 @@ def load() -> tuple:
         with open (args.load  +'/user.csv','r') as f:
             UserCategory = personalCommand.getCategory(f)
             UserLength,UserStringOF = personalCommand.file(f)
-
         with open (args.load +'/candi.csv','r') as f:
             CandiCategory = personalCommand.getCategory(f)
             CandiLength,CandiStringOF = personalCommand.file(f)

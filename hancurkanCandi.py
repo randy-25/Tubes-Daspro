@@ -24,4 +24,6 @@ def hancurkanCandi(CandiData:list,CandiLength:int)->list:
                 CandiData[i][3] = None
                 CandiData[i][4] = None
                 print("Candi telah berhasil dihancurkan.")
+    else : 
+        print("Candi tidak jadi dihancurkan")
     return CandiData

@@ -24,7 +24,6 @@ def bangun(username: str,candiData:list,candiLength:int,bangunanData:list)-> Tup
         if jumlahCandi <= 99:
             for i in range(candiLength):
                 if candiData[i][0] == None or candiData[i][0] == 'None' :
-                    print(candiData[i][0])
                     cek = False
                     candiData[i][0] = str(i)
                     candiData[i][1] = username
